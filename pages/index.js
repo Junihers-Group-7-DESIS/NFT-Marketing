@@ -9,11 +9,11 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Web3Modal from 'web3modal'
 
-import { nftaddress, nftmarketaddress,rpc_url } from '../../../config.js'
+import { nftaddress, nftmarketaddress,rpc_url } from '../config.js'
 
 //importing abis
-import NFT from '../../../artifacts/contracts/NFT.sol/NFT.json'
-import Market from '../../../artifacts/contracts/NFTMarket.sol/NFTMarket.json'
+import NFT from '../artifacts/contracts/NFT.sol/NFT.json'
+import Market from '../artifacts/contracts/NFTMarket.sol/NFTMarket.json'
 
 const Index = () => {
   const [nfts, setNfts] = useState([])
@@ -77,7 +77,7 @@ const Index = () => {
     //this will look for a instance of ethereum injected into the browser
     const web3modal = new Web3Modal()
     //if the user is connected, then we will have a connection that we can work with
-    const connection = web3modal.connect()
+    const connection = await web3modal.connect()
 
     //creating a provider with the user's addredd/connection
     //we are using Web3Provider here
