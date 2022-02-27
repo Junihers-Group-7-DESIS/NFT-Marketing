@@ -52,7 +52,61 @@ const Create = () => {
     }
 
 
+    async function createItem(){
+      const {name, description, price} = formInput;
+      if(!name || !description || !price) return
+    
+      //converting into JSON format
+      const data = JSON.stringify(
+        {name, description, image: fileUrl}
+      )
+    
+      try{
+        const added = await client.add(data)
+        const url = `https://ipfs.infura.io/ipfs/${added.path}`
+    
+        //after the file is uploaded on ipfs, pass the url to save it on polygon
+        createSale(url)
+    
+      }catch(e){
+        console.log('Error uploading file: e', e);
+      }
+    }
 
+    async function createSale(){
+      const web3Modal = new Web3Modal();
+      const connection = await web3Modal.connect()
+      const provider = new ethers.providers.Web3Provider(connection)
+      const signer = provider.getSigner()
+
+
+      let contract = new ethers.Contract(nftaddress,NFT.abi,signer)
+      let transaction = await contract.createToken(url)
+
+      let tx = await transaction.wait()
+
+      let event = tx.events[0]
+      let value = event.args[2]
+      let tokenId = value.toNumber()
+
+
+      const price = ethers.utils.parseUnits(formInput.price, 'ether')
+
+      //move the reference of the contract from the nft contract to the market contract
+      contract = new ethers.Contract(nftmarketaddress,Market.abi,signer)
+
+      let listingPrice = await contract.getListingPrice()
+      listingPrice = listingPrice.toString()
+
+      transaction = await contract.createMarketItem(nftaddress,tokenId,price, {value: listingPrice})
+
+      transaction.wait()
+
+      //reroute the user back to the main page
+      router.push('/')
+      
+
+    }
 
   return (
     <Box>
@@ -69,5 +123,7 @@ const Create = () => {
     </Box>
   )
 }
+
+//allow users to create and save items in ipfs
 
 export default Create
