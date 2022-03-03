@@ -49,7 +49,8 @@ contract NFTMarket is ReentrancyGuard {
 
 
     //function for creating a market item
-
+    //non Reentrant prevents a contract from calling itself, directly or indirectly
+    
     function createMarketItem(
         address nftContract,
         uint256 tokenId,
