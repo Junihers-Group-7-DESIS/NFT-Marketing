@@ -14,6 +14,15 @@ const Collections = (props) => {
             </Typography>
             <Box sx={{marginTop:'2%'}}>
                 <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                    {props.nfts.map((nft,i) => (
+                        <ItemDetails
+                        img={nft.image}
+                        name={nft.name}
+                        creator={nft.seller}
+                        description={nft.description}
+                        cost={nft.price}
+                    />
+                    ))}
                     <ItemDetails
                         img={sampleImg}
                         name='RandomName'

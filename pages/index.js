@@ -124,7 +124,7 @@ const Index = () => {
           }}
         >
           <Header page={1} />
-          <Collections title="NFT Collections" />
+          <Collections title="NFT Collections" nfts = {nfts}/>
           <Info title="random" />
           <Design />
         </Box>
