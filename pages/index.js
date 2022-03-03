@@ -27,7 +27,7 @@ const Index = () => {
   //function for loading the NFTs
   async function loadNFTs() {
     //setting up a provider
-    //using a generic JsonRpcProvider
+    //using a generic JsonRpcProvider from the ethers library
     const provider = new ethers.providers.JsonRpcProvider(rpc_url)
     //taking reference to the NFT contract
     const tokenContract = new ethers.Contract(nftaddress, NFT.abi, provider)
