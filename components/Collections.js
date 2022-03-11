@@ -23,48 +23,7 @@ const Collections = (props) => {
                         cost={nft.price}
                     />
                     ))}
-                    <ItemDetails
-                        img={sampleImg}
-                        name='RandomName'
-                        creator='RandomName'
-                        description=' wdhoiwheo eosk dnlw dōīēōw2dhwiohdwxor3 oei3oy82 za oMOIOIMWMmdf hmmp,Q,JOXM'
-                        cost='10'
-                    />
-                    <ItemDetails
-                        img={sampleImg}
-                        name='RandomName'
-                        creator='RandomName'
-                        description=' wdhoiwheo eosk dnlw dōīēōw2dhwiohdwxor3 oei3oy82 za oMOIOIMWMmdf hmmp,Q,JOXM'
-                        cost='10'
-                    />
-                    <ItemDetails
-                        img={sampleImg}
-                        name='RandomName'
-                        creator='RandomName'
-                        description=' wdhoiwheo eosk dnlw dōīēōw2dhwiohdwxor3 oei3oy82 za oMOIOIMWMmdf hmmp,Q,JOXM'
-                        cost='10'
-                    />
-                    <ItemDetails
-                        img={sampleImg}
-                        name='RandomName'
-                        creator='RandomName'
-                        description=' wdhoiwheo eosk dnlw dōīēōw2dhwiohdwxor3 oei3oy82 za oMOIOIMWMmdf hmmp,Q,JOXM'
-                        cost='10'
-                    />
-                    <ItemDetails
-                        img={sampleImg}
-                        name='RandomName'
-                        creator='RandomName'
-                        description=' wdhoiwheo eosk dnlw dōīēōw2dhwiohdwxor3 oei3oy82 za oMOIOIMWMmdf hmmp,Q,JOXM'
-                        cost='10'
-                    />
-                    <ItemDetails
-                        img={sampleImg}
-                        name='RandomName'
-                        creator='RandomName'
-                        description=' wdhoiwheo eosk dnlw dōīēōw2dhwiohdwxor3 oei3oy82 za oMOIOIMWMmdf hmmp,Q,JOXM'
-                        cost='10'
-                    />
+                   
                 </Grid>
             </Box>
         </Box>

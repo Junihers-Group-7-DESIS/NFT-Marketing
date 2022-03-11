@@ -124,7 +124,7 @@ contract NFTMarket is ReentrancyGuard {
 
     //functions that returns all the items that haven't been purchased by anyone
 
-    function fetchMarketItems()public view returns(MarketItem[] memory){
+    function fetchMarketItems() public view returns(MarketItem[] memory){
         uint itemCount = _itemIds.current();
         uint unsoldItemCount = _itemIds.current() - _itemsSold.current();
         uint currentIndex = 0;

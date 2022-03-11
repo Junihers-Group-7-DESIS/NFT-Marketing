@@ -28,8 +28,8 @@ const Index = () => {
   async function loadNFTs() {
     //setting up a provider
     //using a generic JsonRpcProvider from the ethers library
-    const provider = new ethers.providers.JsonRpcProvider(rpc_url)
-    //taking reference to the NFT contract
+    const provider = new ethers.providers.JsonRpcProvider()
+    // taking reference to the NFT contract
     const tokenContract = new ethers.Contract(nftaddress, NFT.abi, provider)
     //taking reference to the Market contract
     const marketContract = new ethers.Contract(
@@ -42,7 +42,7 @@ const Index = () => {
     //getting all the unsold items through calling a function of our contract
     const data = await marketContract.fetchMarketItems()
 
-    //mapping over all the items
+    // mapping over all the items
     const items = await Promise.all(
       data.map(async (i) => {
         //calling the tokenContract and getting the tokenUri
@@ -71,46 +71,47 @@ const Index = () => {
 
     setNfts(items)
     setLoadingState('loaded')
+    console.log(nfts)
   }
 
-  async function buyNft(nft) {
-    //this will look for a instance of ethereum injected into the browser
-    const web3modal = new Web3Modal()
-    //if the user is connected, then we will have a connection that we can work with
-    const connection = await web3modal.connect()
+  // async function buyNft(nft) {
+  //   //this will look for a instance of ethereum injected into the browser
+  //   const web3modal = new Web3Modal()
+  //   //if the user is connected, then we will have a connection that we can work with
+  //   const connection = await web3modal.connect()
 
-    //creating a provider with the user's addredd/connection
-    //we are using Web3Provider here
-    const provider = new ethers.providers.Web3Provider(connection)
+  //   //creating a provider with the user's addredd/connection
+  //   //we are using Web3Provider here
+  //   const provider = new ethers.providers.Web3Provider(connection)
 
-    //we need the user to sign in to execute an actual transaction
-    //thus we are creating a signer
+  //   //we need the user to sign in to execute an actual transaction
+  //   //thus we are creating a signer
 
-    const signer = provider.getSigner()
-    //instead of passing in the provider as in the previous func, we are passing
-    //in the signer here as the third argument
-    const contract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
+  //   const signer = provider.getSigner()
+  //   //instead of passing in the provider as in the previous func, we are passing
+  //   //in the signer here as the third argument
+  //   const contract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
 
-    //getting a reference to the price
-    const price = ethers.utils.parseUnits(nft.price.toString(), 'ether')
+  //   //getting a reference to the price
+  //   const price = ethers.utils.parseUnits(nft.price.toString(), 'ether')
 
-    //to create a market sale, we will call a function from our contract
-    const transation = await contract.createMarketSale(
-      nftaddress,
-      nft.tokenId,
-      {
-        value: price,
-      },
-    )
-    //waiting till the transaction is executed
-    await transation.wait()
+  //   //to create a market sale, we will call a function from our contract
+  //   const transation = await contract.createMarketSale(
+  //     nftaddress,
+  //     nft.tokenId,
+  //     {
+  //       value: price,
+  //     },
+  //   )
+  //   //waiting till the transaction is executed
+  //   await transation.wait()
 
-    //after the transaction is complete, we wanna reload the nfts
-    loadNFTs()
-  }
+  //   //after the transaction is complete, we wanna reload the nfts
+  //   loadNFTs()
+  // }
 
-  if (loadingState === 'loaded' && !nfts.length)
-    return <h1>NO items in marketplace!</h1>
+  // if (loadingState === 'loaded' && !nfts.length)
+  //   return <h1>No items in marketplace!</h1>
 
   return (
     <Box>
@@ -124,7 +125,12 @@ const Index = () => {
           }}
         >
           <Header page={1} />
-          <Collections title="NFT Collections" nfts = {nfts}/>
+          {nfts.length!=0 &&(
+            <Collections title="NFT Collections" nfts = {nfts}/>
+          )}
+          {!nfts.length &&(
+             "No Items present."
+          )}
           <Info title="random" />
           <Design />
         </Box>
