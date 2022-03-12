@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Web3Modal from 'web3modal'
 
-import { nftaddress, nftmarketaddress,rpc_url } from '../config.js'
+import { nftaddress, nftmarketaddress, rpc_url } from '../config.js'
 
 //importing abis
 import NFT from '../artifacts/contracts/NFT.sol/NFT.json'
@@ -47,11 +47,24 @@ const Index = () => {
       data.map(async (i) => {
         //calling the tokenContract and getting the tokenUri
 
-        const tokenUri = await tokenContract.tokenUri(i.tokenId)
+        const tokenUri = await tokenContract.tokenURI(i.tokenId)
 
         //in ipfs, we will be storing our token in json format, with their names, descriptions, etc
         //Let's get that data:
-        const meta = await axios.get(tokenUri)
+        const meta = await axios.get(tokenUri).catch(function (error) {
+          if (error.response) {
+            // Request made and server responded
+            console.log('Error', error.response.data)
+            console.log('Error', error.response.status)
+            console.log('Error', error.response.headers)
+          } else if (error.request) {
+            // The request was made but no response was received
+            console.log('Error', error.request)
+          } else {
+            // Something happened in setting up the request that triggered an Error
+            console.log('Error', error.message)
+          }
+        })
         //creating a value price, and formatting it to a desirable format
         let price = ethers.utils.formatUnits(i.price.toString(), 'ether')
 
@@ -74,44 +87,44 @@ const Index = () => {
     console.log(nfts)
   }
 
-  // async function buyNft(nft) {
-  //   //this will look for a instance of ethereum injected into the browser
-  //   const web3modal = new Web3Modal()
-  //   //if the user is connected, then we will have a connection that we can work with
-  //   const connection = await web3modal.connect()
+  async function buyNft(nft) {
+    //this will look for a instance of ethereum injected into the browser
+    const web3modal = new Web3Modal()
+    //if the user is connected, then we will have a connection that we can work with
+    const connection = await web3modal.connect()
 
-  //   //creating a provider with the user's addredd/connection
-  //   //we are using Web3Provider here
-  //   const provider = new ethers.providers.Web3Provider(connection)
+    //creating a provider with the user's addredd/connection
+    //we are using Web3Provider here
+    const provider = new ethers.providers.Web3Provider(connection)
 
-  //   //we need the user to sign in to execute an actual transaction
-  //   //thus we are creating a signer
+    //we need the user to sign in to execute an actual transaction
+    //thus we are creating a signer
 
-  //   const signer = provider.getSigner()
-  //   //instead of passing in the provider as in the previous func, we are passing
-  //   //in the signer here as the third argument
-  //   const contract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
+    const signer = provider.getSigner()
+    //instead of passing in the provider as in the previous func, we are passing
+    //in the signer here as the third argument
+    const contract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
 
-  //   //getting a reference to the price
-  //   const price = ethers.utils.parseUnits(nft.price.toString(), 'ether')
+    //getting a reference to the price
+    const price = ethers.utils.parseUnits(nft.price.toString(), 'ether')
 
-  //   //to create a market sale, we will call a function from our contract
-  //   const transation = await contract.createMarketSale(
-  //     nftaddress,
-  //     nft.tokenId,
-  //     {
-  //       value: price,
-  //     },
-  //   )
-  //   //waiting till the transaction is executed
-  //   await transation.wait()
+    //to create a market sale, we will call a function from our contract
+    const transation = await contract.createMarketSale(
+      nftaddress,
+      nft.tokenId,
+      {
+        value: price,
+      },
+    )
+    //waiting till the transaction is executed
+    await transation.wait()
 
-  //   //after the transaction is complete, we wanna reload the nfts
-  //   loadNFTs()
-  // }
+    //after the transaction is complete, we wanna reload the nfts
+    loadNFTs()
+  }
 
-  // if (loadingState === 'loaded' && !nfts.length)
-  //   return <h1>No items in marketplace!</h1>
+  if (loadingState === 'loaded' && !nfts.length)
+    return <h1>No items in marketplace!</h1>
 
   return (
     <Box>
@@ -125,12 +138,10 @@ const Index = () => {
           }}
         >
           <Header page={1} />
-          {nfts.length!=0 &&(
-            <Collections title="NFT Collections" nfts = {nfts}/>
+          {nfts.length != 0 && (
+            <Collections title="NFT Collections" nfts={nfts} />
           )}
-          {!nfts.length &&(
-             "No Items present."
-          )}
+          {!nfts.length && 'No Items present.'}
           <Info title="random" />
           <Design />
         </Box>
