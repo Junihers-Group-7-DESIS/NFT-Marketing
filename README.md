@@ -1,15 +1,16 @@
-# Basic Sample Hardhat Project
+# NFT-Marketing Dapp
+### Setting up the application in local system
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
 
-Try running some of the following tasks:
+- Clone the repository in your local system and open in an ide (eg: VS Code)
+- Ensure node and npm are installed in your system
+- Run command ``` npm install ```
+- To compile the contracts, Run command ```npx hardhat compile```
+- To get dummy accounts, Run command ```npx hardhat node```
 
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
-```
+For the further steps, you need to install metamask extension in your browser(preffered chrome)
+After adding and setting up metamask extension in your browser, add a local network in metamask.
+[Follow this link](https://stackoverflow.com/a/68814079/15968090)
+
+#### Run application
+- Run commans ```npm run dev```
