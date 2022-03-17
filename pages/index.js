@@ -28,7 +28,7 @@ const Index = () => {
   async function loadNFTs() {
     //setting up a provider
     //using a generic JsonRpcProvider from the ethers library
-    const provider = new ethers.providers.JsonRpcProvider()
+    const provider = new ethers.providers.JsonRpcProvider('https://rpc-mumbai.matic.today')
     // taking reference to the NFT contract
     const tokenContract = new ethers.Contract(nftaddress, NFT.abi, provider)
     //taking reference to the Market contract
