@@ -15,25 +15,28 @@ const ItemDetails = (props) => {
     return(
         <Grid item xs={12} sm={4} md={3} key={props.index}>
             <Box sx={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'space-evenly'}}>
-                <Card sx={{ maxWidth: 250, borderRadius:'15px' }}>
+                <Card sx={{ maxWidth: 1500, borderRadius:'15px' }}>
                     <CardActionArea>
-                        <Image lazyRoot={lazyRoot} src={props.img} width="300px" height="300px" />
-                        <CardContent>
-                            <Typography sx={{textAlign:'center', fontWeight:'600'}} gutterBottom variant="h5" component="div">
+                        <Image lazyRoot={lazyRoot} src={props.img} width="800px" height="500px" />
+                        {/* <CardContent>
+                            <h3>
+                                {props.price}
+                            </h3>
+                            { <Typography sx={{textAlign:'center', fontWeight:'600'}} gutterBottom variant="h5" component="div">
                                 {props.name}
-                            </Typography>
+                            </Typography> }
                             <Box sx={{display:'flex', justifyContent:'center'}}>
-                                <Typography sx={{color:'#888888'}} gutterBottom variant='caption' component="div">
-                                    by &nbsp;
+                                <Typography sx={{color:'#000000'}} gutterBottom variant='caption' component="div">
+                                    {props.description} &nbsp;
                                 </Typography>
-                                <Typography sx={{color:'#0095D6'}} gutterBottom variant='caption' component="div">
-                                    {props.creator}
-                                </Typography>
+                                { <Typography sx={{color:'#0095D6'}} gutterBottom variant='caption' component="div">
+                                    {props.description}
+                                </Typography> }
                             </Box>
                             <Typography variant="body2" color="text.secondary">
                                 {props.description}
                             </Typography>
-                        </CardContent>
+                        </CardContent> */}
                     </CardActionArea>
                 </Card>
                 <Box sx={{display:'flex', alignItems:'center', justifyContent:'space-around', width:240, borderRadius:'15px', backgroundColor:'#90E0EF', marginTop:'4%'}}>
