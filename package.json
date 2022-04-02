@@ -1,0 +1,35 @@
+{
+  "name": "hardhat-project",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.4",
+    "@nomiclabs/hardhat-waffle": "^2.0.2",
+    "chai": "^4.3.6",
+    "ethereum-waffle": "^3.4.0",
+    "ethers": "^5.5.4",
+    "hardhat": "^2.8.3"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.8.1",
+    "@emotion/styled": "^11.8.1",
+    "@material-ui/core": "^4.12.3",
+    "@mui/icons-material": "^5.4.2",
+    "@mui/material": "^5.4.3",
+    "@openzeppelin/contracts": "^4.5.0",
+    "axios": "^0.25.0",
+    "ipfs-http-client": "^50.1.2",
+    "mongodb": "^4.4.1",
+    "next": "^12.1.0",
+    "next-connect": "^0.12.2",
+    "react": "^17.0.2",
+    "react-device-detect": "^2.1.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^6.2.1",
+    "web3modal": "^1.9.5",
+    "yarn": "^1.22.17"
+  }
+}
