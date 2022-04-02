@@ -7,6 +7,9 @@
 - Run command ``` npm install ```
 - To compile the contracts, Run command ```npx hardhat compile```
 - To get dummy accounts, Run command ```npx hardhat node```
+- To get local network, Run command ``````
+- To get local network, Run command ```npx hardhat run scripts/deploy.js --network localhost```
+- Add .env file with mongoDB data
 
 For the further steps, you need to install metamask extension in your browser(preffered chrome)
 After adding and setting up metamask extension in your browser, add a local network in metamask.
