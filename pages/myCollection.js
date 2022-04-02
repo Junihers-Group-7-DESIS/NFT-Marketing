@@ -54,7 +54,7 @@ const MyCollection = () => {
     const marketplaceContract = new ethers.Contract(marketplaceAddress, NFTMarketplace.abi, signer)
    
 
-    const tokenContract = new ethers.Contract(nftaddress, NFT.abi, provider)
+    // const tokenContract = new ethers.Contract(nftaddress, NFT.abi, provider)
 
     //getting the data
     //getting all the unsold items through calling a function of our contract
@@ -92,8 +92,6 @@ const MyCollection = () => {
     console.log('nft:', nft)
     router.push(`/resell-nft?id=${nft.tokenId}&tokenURI=${nft.tokenURI}`)
   }
-  if (loadingState === 'loaded' && !nfts.length)
-    return <h1>No assets owned</h1>
 
   return (
     <Box>
@@ -107,7 +105,8 @@ const MyCollection = () => {
           }}
         >
           <Header page={3} />
-          <Collections title="My NFT Collections" />
+          <Collections title="My NFT Collections" nfts={nfts}/>
+          {!nfts.length && 'No assets owned.'}
           <Design />
         </Box>
       </Box>

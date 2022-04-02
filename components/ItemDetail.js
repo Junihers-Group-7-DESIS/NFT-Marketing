@@ -17,7 +17,7 @@ const ItemDetails = (props) => {
             <Box sx={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'space-evenly'}}>
                 <Card sx={{ maxWidth: 250, borderRadius:'15px' }}>
                     <CardActionArea>
-                        <Image lazyRoot={lazyRoot} src={props.img} width="300" />
+                        <Image lazyRoot={lazyRoot} src={props.img} width="300px" height="300px" />
                         <CardContent>
                             <Typography sx={{textAlign:'center', fontWeight:'600'}} gutterBottom variant="h5" component="div">
                                 {props.name}

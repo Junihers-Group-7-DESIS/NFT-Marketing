@@ -113,7 +113,8 @@ const Dashboard = () => {
       <Box sx={{ backgroundColor:'#F7FFFE', margin:'-0.4%'}}>
         <Box sx={{ backgroundColor:'#F7FFFE', margin:'-0.4%', marginRight:'-0.3%', marginBottom:'-2%'}}>
             <Header page={4}/>
-            <Collections title='Dashboard' />
+            <Collections title='Dashboard' nfts={nfts}/>
+            {!nfts.length && 'No items listed.'}
         <Design/>
         </Box>
       </Box>

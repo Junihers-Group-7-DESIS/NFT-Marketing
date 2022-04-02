@@ -67,9 +67,6 @@ export default function Index() {
     await transaction.wait()
     loadNFTs()
   }
-  //  to correct
-  if (loadingState === 'loaded' && !nfts.length)
-    return (<h1>No items in marketplace!</h1>)
 
   return (
     <Box>
