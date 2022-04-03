@@ -48,6 +48,7 @@ export default function Index() {
       }
       return item
     }))
+    console.log(items)
     setNfts(items)
     setLoadingState('loaded') 
   }

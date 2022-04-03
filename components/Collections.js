@@ -19,6 +19,7 @@ const Collections = (props) => {
                         img={nft.image}
                         name={nft.name}
                         // creator={nft.seller}
+                        tokenId = {nft.tokenId}
                         description={nft.description}
                         cost={nft.price}
                     />

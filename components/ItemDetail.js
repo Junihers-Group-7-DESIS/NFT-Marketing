@@ -12,6 +12,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import {ethers} from 'ethers'
 import Web3Modal from 'web3modal'
+import { useRouter } from 'next/router'
 
 // import { nftaddress, nftmarketaddress } from "../config.js";
 import {
@@ -22,6 +23,7 @@ import NFTMarketplace from '../artifacts/contracts/NFTMarketplace.sol/NFTMarketp
 // import Dashboard from '../pages/dashboard.js'
 
 async function buyNft(nft) {
+    const router = useRouter()
     /* needs the user to sign the transaction, so will use Web3Provider and sign it */
     const web3Modal = new Web3Modal()
     const connection = await web3Modal.connect()
@@ -30,12 +32,13 @@ async function buyNft(nft) {
     const contract = new ethers.Contract(marketplaceAddress, NFTMarketplace.abi, signer)
 
     /* user will be prompted to pay the asking proces to complete the transaction */
-    const price = ethers.utils.parseUnits(nft.price.toString(), 'ether')   
+    console.log(nft)
+    const price = ethers.utils.parseUnits(nft.cost.toString(), 'ether')   
     const transaction = await contract.createMarketSale(nft.tokenId, {
       value: price
     })
     await transaction.wait()
-    loadNFTs()
+    router.push('/')
   }
 
 const ItemDetails = (props) => {
