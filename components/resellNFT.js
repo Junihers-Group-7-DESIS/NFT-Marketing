@@ -48,12 +48,7 @@ export default resellNFTs = (props) => {
                     </Box>
                     </CardActionArea>
                         </Card>
-                    
-                    
-                
-
             </Box>
-
         </Grid>
     )
 }
