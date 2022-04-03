@@ -106,7 +106,7 @@ const MyCollection = () => {
         >
           <Header page={3} />
           <Collections title="My NFT Collections" nfts={nfts}/>
-          {!nfts.length && 'No assets owned.'}
+          {!nfts.length && <center><h1>No assets owned.</h1></center>}
           <Design />
         </Box>
       </Box>

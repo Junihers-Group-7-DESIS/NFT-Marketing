@@ -51,22 +51,22 @@ export default function Index() {
     setNfts(items)
     setLoadingState('loaded') 
   }
-  async function buyNft(nft) {
-    /* needs the user to sign the transaction, so will use Web3Provider and sign it */
-    const web3Modal = new Web3Modal()
-    const connection = await web3Modal.connect()
-    const provider = new ethers.providers.Web3Provider(connection)
-    const signer = provider.getSigner()
-    const contract = new ethers.Contract(marketplaceAddress, NFTMarketplace.abi, signer)
+  // async function buyNft(nft) {
+  //   /* needs the user to sign the transaction, so will use Web3Provider and sign it */
+  //   const web3Modal = new Web3Modal()
+  //   const connection = await web3Modal.connect()
+  //   const provider = new ethers.providers.Web3Provider(connection)
+  //   const signer = provider.getSigner()
+  //   const contract = new ethers.Contract(marketplaceAddress, NFTMarketplace.abi, signer)
 
-    /* user will be prompted to pay the asking proces to complete the transaction */
-    const price = ethers.utils.parseUnits(nft.price.toString(), 'ether')   
-    const transaction = await contract.createMarketSale(nft.tokenId, {
-      value: price
-    })
-    await transaction.wait()
-    loadNFTs()
-  }
+  //   /* user will be prompted to pay the asking proces to complete the transaction */
+  //   const price = ethers.utils.parseUnits(nft.price.toString(), 'ether')   
+  //   const transaction = await contract.createMarketSale(nft.tokenId, {
+  //     value: price
+  //   })
+  //   await transaction.wait()
+  //   loadNFTs()
+  // }
 
   return (
     <Box>
@@ -83,7 +83,7 @@ export default function Index() {
           {nfts.length != 0 && (
             <Collections title="NFT Collections" nfts={nfts} />
           )}
-          {!nfts.length && 'No Items present.'}
+          {!nfts.length && <center><h1>No Items present</h1></center>}
           <Info title="random" />
           <Design />
         </Box>

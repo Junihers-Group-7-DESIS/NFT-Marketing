@@ -7,16 +7,16 @@ const Info = (props) => {
     return(
         <Box sx={{display:'flex',flexWrap:'wrap', justifyContent:'space-evenly', alignItems:'center', marginTop:'5%',paddingBottom:'5%', backgroundColor:'#FFFFFF'}} >
             <InfoDetails 
-                title='Heading1'
-                desc='fhhxwei xfwenfxoqiwex dhqwno  d3nm oqwmd3xrmd iwsmje'
+                title='Sell your assets'
+                desc='You can sell your assets by creating their unique tokens'
             />
             <InfoDetails 
-                title='Heading2'
-                desc='fhhxwei xfwenfxoqiwex dhqwno  d3nm oqwmd3xrmd iwsmje'
+                title='View your collections'
+                desc='Check out your personalized collections in the My Collections page'
             />
             <InfoDetails 
-                title='Heading3'
-                desc='fhhxwei xfwenfxoqiwex dhqwno  d3nm oqwmd3xrmd iwsmje'
+                title='Dashboard'
+                desc='Every token properly categorised here for your ease'
             />
         </Box>
   )}
