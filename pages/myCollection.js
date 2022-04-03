@@ -1,6 +1,6 @@
 import { Box } from '@material-ui/core'
 import Header from '../components/header.js'
-import Collections from '../components/Collections.js'
+import resell from '../components/resell.js'
 import Design from '../components/design.js'
 
 import { ethers } from 'ethers'
@@ -162,7 +162,7 @@ const MyCollection = () => {
           }}
         >
           <Header page={3} />
-          <Collections title="My NFT Collections" nfts={nfts}/>
+          <resell title="My NFT Collections" nfts={nfts}/>
           {!nfts.length && <center><h1>No assets owned.</h1></center>}
           <Design />
         </Box>
