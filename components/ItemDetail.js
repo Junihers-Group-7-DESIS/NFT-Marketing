@@ -8,6 +8,8 @@ import { Grid } from '@mui/material';
 import ethericon from "../logo/Rectangle 7.svg";
 import Image from 'next/image'
 
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 import {ethers} from 'ethers'
 import Web3Modal from 'web3modal'
 
@@ -73,7 +75,7 @@ const ItemDetails = (props) => {
                         
                             <Image lazyRoot={lazyRoot} src={ethericon} width="35" height="40" />
                             <a
-                            onClick={(e) => buyNft()}>
+                            onClick={(e) => buyNft(props)}>
                                     <Typography variant="subtitle1" >
                             {props.cost} &nbsp; Ethers
                         </Typography>
