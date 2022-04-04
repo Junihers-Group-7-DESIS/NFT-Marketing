@@ -18,7 +18,7 @@ import { marketplaceAddress } from '../config.js'
 // import Market from '../artifacts/contracts/NFTMarket.sol/NFTMarket.json'
 import NFTMarketplace from '../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json'
 
-export default function formResells() {
+export default function FormResells() {
     const [formInput, updateFormInput] = useState({ price: '', image: '' })
     const router = useRouter()
     const { id, tokenURI } = router.query

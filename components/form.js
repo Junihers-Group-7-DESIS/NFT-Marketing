@@ -49,12 +49,13 @@ export default function CreateItem() {
   
       price = ethers.utils.parseUnits(price, 'ether')
   
-      let postData = {
+      var postData = {
         "name":name,
         "description":description,
         "fileUrl":fileUrl,
         "price":price
       }
+      console.log(JSON.stringify(postData))
       let data = await fetch('/api/data', {
         method: 'POST',
         body: JSON.stringify(postData)

@@ -7,6 +7,7 @@ import { CardActionArea } from '@mui/material';
 import { Grid } from '@mui/material';
 import ethericon from "../logo/Rectangle 7.svg";
 import Image from 'next/image'
+import Button from '@mui/material/Button';
 
 import { useEffect, useState } from 'react'
 import axios from 'axios'
@@ -21,9 +22,8 @@ import {
 import NFTMarketplace from '../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json'
 
 // import Dashboard from '../pages/dashboard.js'
-
 async function buyNft(nft) {
-    const router = useRouter()
+    
     /* needs the user to sign the transaction, so will use Web3Provider and sign it */
     const web3Modal = new Web3Modal()
     const connection = await web3Modal.connect()
@@ -38,12 +38,12 @@ async function buyNft(nft) {
       value: price
     })
     await transaction.wait()
-    router.push('/')
   }
 
 const ItemDetails = (props) => {
 
     const lazyRoot = React.useRef(null)
+    const router = useRouter()
 
     return (
         <Grid item xs={12} sm={4} md={3} key={props.index}>
@@ -51,7 +51,7 @@ const ItemDetails = (props) => {
                 <Card sx={{ maxWidth: 1500, borderRadius: '15px' }}>
                     <CardActionArea>
                         <Image lazyRoot={lazyRoot} src={props.img} width="800px" height="500px" />
-                        {/* <CardContent>
+                        <CardContent>
                             <h3>
                                 {props.price}
                             </h3>
@@ -69,28 +69,20 @@ const ItemDetails = (props) => {
                             <Typography variant="body2" color="text.secondary">
                                 {props.description}
                             </Typography>
-                        </CardContent> */}
+                        </CardContent>
                     </CardActionArea>
                 </Card>
-                <Card>
-                        <CardActionArea>
+                    <Button onClick={(e) => buyNft(props)}>
                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around', width: 240, borderRadius: '15px', backgroundColor: '#90E0EF', marginTop: '4%' }}>
                         
                             <Image lazyRoot={lazyRoot} src={ethericon} width="35" height="40" />
-                            <a
-                            onClick={(e) => buyNft(props)}>
+                           
                                     <Typography variant="subtitle1" >
                             {props.cost} &nbsp; Ethers
                         </Typography>
-                            </a>
                         
                     </Box>
-                    </CardActionArea>
-                        </Card>
-                    
-                    
-                
-
+                    </Button>
             </Box>
 
         </Grid>

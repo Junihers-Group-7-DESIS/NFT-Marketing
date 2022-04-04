@@ -20,6 +20,5 @@ const Create = () => {
   )
 }
 
-//allow users to create and save items in ipfs
 
 export default Create

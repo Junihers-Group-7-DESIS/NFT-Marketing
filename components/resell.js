@@ -1,10 +1,10 @@
 import React from 'react';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import resellNFTs from './resellNFT';
+import ResellNFTs from './resellNFT';
 import { Grid } from '@mui/material';
 
-const resell = (props) => {
+const Resell = (props) => {
 
     return(
         <Box sx={{display:'flex', flexDirection:'column', alignItems:'center', margin:'1%', backgroundColor:'transparent'}} >
@@ -14,7 +14,7 @@ const resell = (props) => {
             <Box sx={{marginTop:'2%'}}>
                 <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                     {props.nfts.map((nft,i) => (
-                        <resellNFTs
+                        <ResellNFTs
                         img={nft.image}
                         name={nft.name}
                         // creator={nft.seller}
@@ -29,4 +29,4 @@ const resell = (props) => {
         </Box>
   )}
   
-export default resell;
+export default Resell;

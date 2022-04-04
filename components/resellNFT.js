@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import { Grid } from '@mui/material';
 import Image from 'next/image'
+import ethericon from "../logo/Rectangle 7.svg";
 
 import { useEffect, useState } from 'react'
 import axios from 'axios'
@@ -21,7 +22,7 @@ import NFTMarketplace from '../artifacts/contracts/NFTMarketplace.sol/NFTMarketp
 
 // import Dashboard from '../pages/dashboard.js'
 
-export default resellNFTs = (props) => {
+export default function ResellNFT(props) {
 
     const lazyRoot = React.useRef(null)
 

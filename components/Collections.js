@@ -6,7 +6,7 @@ import { Grid } from '@mui/material';
 import sampleImg from "../logo/sampleImg.png"
 
 const Collections = (props) => {
-
+    console.log(props.nfts)
     return(
         <Box sx={{display:'flex', flexDirection:'column', alignItems:'center', margin:'1%', backgroundColor:'transparent'}} >
             <Typography variant="h4">
@@ -14,6 +14,7 @@ const Collections = (props) => {
             </Typography>
             <Box sx={{marginTop:'2%'}}>
                 <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                   
                     {props.nfts.map((nft,i) => (
                         <ItemDetails
                         img={nft.image}
