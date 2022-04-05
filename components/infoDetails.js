@@ -10,12 +10,12 @@ const InfoDetails = (props) => {
 
     const lazyRoot = React.useRef(null)
 
-    return(
-        <Card sx={{display:'flex',flexDirection:'column',alignContent:'center', maxWidth: 200, borderRadius:'15px', marginTop:'5%', paddingTop:'1%' }}>
+    return (
+        <Card sx={{ display: 'flex', flexDirection: 'column', alignContent: 'center', maxWidth: 200, borderRadius: '15px', marginTop: '5%', paddingTop: '1%' }}>
             <Image lazyRoot={lazyRoot} src={walletIcon} width='30' height='30' />
             <CardActionArea>
                 <CardContent>
-                    <Typography sx={{textAlign:'center', fontWeight:'600'}} gutterBottom variant="h6" component="div">
+                    <Typography sx={{ textAlign: 'center', fontWeight: '600' }} gutterBottom variant="h6" component="div">
                         {props.title}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
@@ -24,6 +24,7 @@ const InfoDetails = (props) => {
                 </CardContent>
             </CardActionArea>
         </Card>
-)}
-  
+    )
+}
+
 export default InfoDetails;
