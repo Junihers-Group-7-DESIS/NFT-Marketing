@@ -15,4 +15,4 @@ After adding and setting up metamask extension in your browser, add a local netw
 [Follow this link](https://stackoverflow.com/a/68814079/15968090)
 
 #### Run application
-- Run commans ```npm run dev```
+- Run commands ```npm run dev```
