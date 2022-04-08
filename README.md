@@ -14,6 +14,8 @@ For the further steps, you need to install metamask extension in your browser(pr
 After adding and setting up metamask extension in your browser, add a local network in metamask.
 [Follow this link](https://stackoverflow.com/a/68814079/15968090) -->
 ## About The Project
+![Screenshot from 2022-04-05 17-26-41](https://user-images.githubusercontent.com/77429981/162359914-6a0d4b00-0916-4be6-b747-28101c733c2f.png)
+![Screenshot from 2022-04-05 17-36-27](https://user-images.githubusercontent.com/77429981/162359827-87c01a68-1700-40bf-87c2-4edd1c1b8141.png)
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 We have built a marketplace for the people who cherish the uniqueness of an asset and like to own it.
@@ -59,3 +61,5 @@ Fork and clone this repository in your local system.
 
 #### Run application
 - Run commands ```npm run dev```
+
+
