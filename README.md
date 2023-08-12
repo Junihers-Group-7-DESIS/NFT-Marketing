@@ -14,6 +14,8 @@ For the further steps, you need to install metamask extension in your browser(pr
 After adding and setting up metamask extension in your browser, add a local network in metamask.
 [Follow this link](https://stackoverflow.com/a/68814079/15968090) -->
 # NFT-MarketPlace
+## [Presentation](https://www.canva.com/design/DAE9FNvCV7k/3RrEBIdqVeZIN6N8pZ8NDA/edit?utm_content=DAE9FNvCV7k&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+## [Report](https://docs.google.com/document/d/1k8TN2xzvexwrWT0kXa0_38pO7Fo34boIyW3UsbDkx7k/edit?usp=sharing) 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/77429981/162573406-7a3aab05-26f5-4d5b-ae40-f1cc0380e421.svg" />
 </p>
